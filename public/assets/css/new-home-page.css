@@ -1,0 +1,435 @@
+
+/* ===================== Header Area ===================== */
+/* header.header_anime .main-header .nav,
+header.header_anime .main-header .side_menu_btn{
+    margin-left: auto;
+}
+
+header.header_anime .main-header .logo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header.header_anime .main-header .logo a{
+    flex: none;
+    display: block;
+    width: 100%;
+}
+header.header_anime .main-header .logo img{
+    width: 100%;
+    position: absolute;
+    animation: header_anime_img .5s ease 4.5s 1;
+    animation-fill-mode: both;
+}
+
+@media screen and (min-width: 1200px){
+    @keyframes header_anime_img{
+        0%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% - 40px));
+            max-width: 680px;
+        }
+        100%{
+            top: 42px;
+            left: 52px;
+            transform: translate(0, 0);
+            max-width: 180px;
+        }
+    }
+}
+
+@media screen and (min-width: 992px){
+    @keyframes header_anime_img{
+        0%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% - 35px));
+            max-width: 680px;
+        }
+        100%{
+            top: 42px;
+            left: 52px;
+            transform: translate(0, 0);
+            max-width: 180px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px){
+    @keyframes header_anime_img{
+        0%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% - 35px));
+            max-width: 580px;
+        }
+        100%{
+            top: 42px;
+            left: 52px;
+            transform: translate(0, 0);
+            max-width: 180px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px){
+    @keyframes header_anime_img{
+        0%{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, calc(-50% - 15px));
+            max-width: 260px;
+        }
+        100%{
+            top: 28px;
+            left: 12px;
+            transform: translate(0, 0);
+            max-width: 180px;
+        }
+    }
+} */
+/* ===================== End Header Area ===================== */
+
+/* ===================== Hero-Sec Area ===================== */
+.hero-sec{
+    overflow: hidden;
+    height: auto !important;
+    min-height: 1px !important;
+}
+.hero-sec video{
+    width: 100%;
+    vertical-align: middle;
+}
+/* ===================== End Hero-Sec Area ===================== */
+
+/* ===================== Sec-1 Area ===================== */
+.sec-1{
+    padding: 120px 0 80px;
+}
+.sec-1 .content-box .highlight-text{
+    margin-top: 120px;
+}
+
+@media screen and (max-width: 991px) {
+    .sec-1{
+        padding: 65px 0;
+    }
+    .sec-1 .content-box .highlight-text{
+        margin-top: 0;
+    }
+}
+/* ===================== End Sec-1 Area ===================== */
+
+/* ===================== Our-Work-Sec Area ===================== */
+.our-work-sec{
+    background-color: #000;
+    padding-top: 20px;
+    padding-bottom: 140px;
+}
+.our-work-sec .our-gif img{
+    display: block;
+    width: 280px;
+    margin: 0 auto 20px;
+}
+.our-work-sec .case-study-box:not(:last-child){
+    margin-bottom: 50px;
+}
+.our-work-sec .case-study-box .img img{
+    width: 100%;
+}
+.our-work-sec .case-study-box .sub-title{
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 12px;
+}
+.our-work-sec .case-study-box .sub-title span{
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    background-color: #fff;
+    margin: 0 15px;
+}
+.our-work-sec .case-study-box .title{
+    text-transform: capitalize;
+    font-size: 38px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+.our-work-sec .case-study-box .des{
+    font-size: 18px;
+    color: #fff;
+}
+.our-work-sec .case-study-box .cta-btn{
+    text-align: left;
+}
+.our-work-sec .case-study-box .c-pl{
+    padding-left: 100px;
+}
+.our-work-sec .case-study-box .c-pr{
+    padding-right: 100px;
+}
+.our-work-sec .explore-btn{
+    text-align: center;
+}
+.our-work-sec .explore-btn a{
+    text-decoration: none;
+    font-size: 34px;
+    color: #fff;
+}
+.our-work-sec .explore-btn a i{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 26px;
+    transform: translateY(1px);
+    margin-left: 3px;
+}
+
+@media screen and (max-width: 991px) {
+    .our-work-sec{
+        padding-bottom: 100px;
+    }
+    .our-work-sec .our-gif img{
+        margin: -18px auto -10px;
+    }
+
+    .our-work-sec .case-study-box:not(:last-child){
+        margin-bottom: 50px;
+    }
+    .our-work-sec .case-study-box .c-pl,
+    .our-work-sec .case-study-box .c-pr{
+        padding: 0 15px;
+    }
+    .our-work-sec .case-study-box .img{
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .our-work-sec .our-gif img{
+        width: 200px;
+    }
+}
+/* ===================== End Our-Work-Sec Area ===================== */
+
+
+/* ===================== Join-Sec Area ===================== */
+.join-sec{
+    background-color: #000;
+    padding-bottom: 80px;
+}
+.join-sec .heading-sec{
+    margin-bottom: 50px;
+}
+.join-sec .heading-sec h2{
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    font-size: 48px;
+    color: #fff;
+}
+.join-sec .join-box{
+    position: relative;
+    display: block;
+    background-color: #abc8da;
+    padding: 15px;
+}
+.join-sec .join-box .img img{
+    display: block;
+    height: 20vw;
+    margin-left: auto;
+}
+.join-sec .join-box .title-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #1a1a1a;
+    padding: 25px;
+}
+.join-sec .join-box .title-box .title{
+    font-size: 34px;
+}
+.join-sec .join-box .title-box .cta{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+    .join-sec > .container{
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .join-sec .join-box{
+        margin-bottom: 15px
+    }
+    .join-sec .heading-sec h2{
+        font-size: 32px;
+    }
+    .join-sec .join-box .img img{
+        height: 30vw;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .join-sec .join-box .img img{
+        height: 44vw;
+    }
+    .join-sec .join-box .title-box{
+        padding: 18px;
+    }
+    .join-sec .join-box .title-box .title{
+        font-size: 22px;
+    }
+    .join-sec .join-box .title-box .cta{
+        font-size: 16px;
+    }
+}
+/* ===================== End Join-Sec Area ===================== */
+
+/* ===================== Sec-2 Area ===================== */
+.sec-2 .sec-title{
+    margin-bottom: -10px;
+}
+.sec-2 .sec-title .title b{
+    display: block;
+    font-family: var(--AcuminVariableConcept);
+    font-size: 60px;
+    font-weight: 100;
+    color: #000;
+    padding-bottom: 22px;
+}
+.sec-2 .sec-title .title p{
+    font-size: 72px;
+    color: #000;
+}
+.sec-2 .sec-title .title p img{
+    height: 44px;
+    margin: -8px -12px 0 -18px;
+}
+.sec-2 .brand-images .img{
+    width: auto;
+    height: auto;
+    margin: -5px 15px;
+}
+
+@media screen and (max-width: 575px) {
+    .sec-2 .sec-title .title b{
+        font-size: 42px;
+        padding-bottom: 10px;
+    }
+    .sec-2 .sec-title .title p{
+        font-size: 42px;
+    }
+    .sec-2 .sec-title .title p img{
+        height: 30px;
+        margin: -8px -8px 0 -12px;
+    }
+}
+/* ===================== End Sec-2 Area ===================== */
+
+/* ===================== Start-Project-Sec Area ===================== */
+.start-project-sec{
+    background-color: #0a0a0a;
+    padding: 80px 0;
+}
+.start-project-sec .heading-sec{
+    text-align: center;
+    font-size: 40px;
+    color: #9a9a9a;
+    margin-bottom: 52px;
+}
+.start-project-sec .heading-sec span{
+    border-bottom: 1px solid #e1090a;
+    padding-top: 5px;
+}
+.start-project-sec .form .input-field{
+    position: relative;
+    width: calc(100% - 30px);
+    margin-bottom: 25px;
+}
+.start-project-sec .form .input-field::after{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: #9a9a9a;
+    position: absolute;
+    right : 0;
+    bottom: 0;
+    transform-origin: left center;
+    transform: translateX(100%) rotate(-35deg);
+}
+.start-project-sec .form .input-field input{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom: 1px solid #9a9a9a;
+    color: #ccc;
+    width: 100%;
+    padding: 20px;
+}
+.start-project-sec .form .form-btn{
+    border: none;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    background-color: #e1090a;
+    color: #ddd;
+    padding: 12px 35px;
+    margin-top: 25px;
+}
+.start-project-sec .form .form-btn span{
+    display: inline-block;
+    margin-right: 25px;
+    margin-bottom: -5px;
+}
+.start-project-sec .form .form-btn i{
+    font-size: 24px;
+}
+@media screen and (max-width: 575px) {
+    .start-project-sec .heading-sec{
+        margin-bottom: 30px;
+    }
+}
+/* ===================== End Start-Project-Sec Area ===================== */
+
+/* ===================== Sec-3 Area ===================== */
+.sec-3{
+    padding: 100px 0 65px;
+}
+
+@media screen and (max-width: 575px){
+    .sec-3{
+        padding: 70px 0 65px;
+    }
+}
+/* ===================== End Sec-3 Area ===================== */
+
+/* ===================== Footer Area ===================== */
+footer .footer{
+    padding: 85px 0;
+}
+/* ===================== End Footer Area ===================== */
+
