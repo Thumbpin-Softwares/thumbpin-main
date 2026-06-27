@@ -80,7 +80,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             right: 60px;
             bottom: 40px;
             z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #25d366;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             animation: whatsapp-btn 0.8s ease-in-out 0.5s infinite alternate;
+            text-decoration: none;
         }
 
         @keyframes whatsapp-btn {
@@ -93,8 +102,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        .whatsapp-btn img {
-            width: 60px;
+        .whatsapp-btn i {
+            font-size: 32px;
+            color: #fff;
         }
 
         @media screen and (max-width: 767px) {
@@ -171,10 +181,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {{-- whatsapp (hidden per-view if `hideWhatsApp` is set) --}}
     @unless(isset($hideWhatsApp) && $hideWhatsApp)
-        <a href="https://api.whatsapp.com/send?phone=919773511447" target="_blank" class="whatsapp-btn">
-            <img src="https://www.mrfurniture.ae/assets/img/whatsapp-logo.png"
-                title="Mr furniture - office furniture dubai, office furniture in UAE, office furniture manufacturer in dubai, office furniture supplier in dubai, office furniture store in dubai, office workstations"
-                alt="whatsapp-img, office furniture in dubai, office furniture store in dubai, office furniture supplier in dubai, office furniture manufacturer in dubai">
+        <a href="https://api.whatsapp.com/send?phone=919773511447" target="_blank" class="whatsapp-btn" title="Chat with Thumbpin on WhatsApp" aria-label="Chat with Thumbpin on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
         </a>
     @endunless
     {{-- whatsapp --}}
