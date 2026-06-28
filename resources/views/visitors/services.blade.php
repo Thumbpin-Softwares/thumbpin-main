@@ -75,11 +75,11 @@
                     <div class="card-arrow">→</div>
                 </a>
 
-                <!-- Item 4 - Real Estate Filming (Clickable) -->
-                <a href="{{ route('real-estate-filming') }}" class="service-card service-card-link">
+                <!-- Item 4 - Real Estate Ads (Clickable) -->
+                <a href="{{ route('real-estate-ads') }}" class="service-card service-card-link">
                     <div class="card-accent"></div>
                     <span class="card-number">04</span>
-                    <h3 class="card-title">Real Estate Filming</h3>
+                    <h3 class="card-title">Real Estate Ads</h3>
                     <p class="card-desc">Cinematic property walkthroughs, drone aerials and promo films that help builders and brokers showcase their projects and sell faster.</p>
                     <div class="card-arrow">→</div>
                 </a>

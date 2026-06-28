@@ -34,7 +34,7 @@ Route::view('/services/seo', 'visitors.search-engine-optimization-seo-services')
 Route::view('/services/performance-marketing', 'visitors.performance-marketing-agency')->name('performance-marketing-agency');
 Route::view('/services/social-media-marketing', 'visitors.social-media-marketing-agency')->name('social-media-marketing-agency');
 Route::view('/services/web-design', 'visitors.web-design-agency')->name('web-design-agency');
-Route::view('/services/real-estate-filming', 'visitors.real-estate-filming')->name('real-estate-filming');
+Route::view('/services/real-estate-ads', 'visitors.real-estate-ads')->name('real-estate-ads');
 
 
 Route::view('/work/digital', 'visitors.digital')->name('digital');

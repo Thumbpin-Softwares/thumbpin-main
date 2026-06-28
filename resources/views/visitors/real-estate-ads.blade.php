@@ -1,6 +1,6 @@
 @extends('layout.visitor', [
-    'title' => 'Film & Video Production Portfolio | Thumbpin',
-    'description' => 'Explore Thumbpin\'s award-worthy film portfolio — cinematic corporate films, ad commercials, product shoots, and scroll-stopping reels. View our best video production work.',
+    'title' => 'Real Estate Ads Agency in Gurgaon | Thumbpin',
+    'description' => 'Thumbpin produces cinematic real estate ad films, drone walkthroughs and property promo reels that help builders and brokers sell faster.',
     'footer_black' => 'footer-black',
 ])
 
@@ -232,7 +232,7 @@
 /* ====================== REELS / SHORT CONTENT ====================== */
 .film-reels-section {
     padding: 100px 0;
-    background: #050505;
+    background: #fff;
     position: relative;
     overflow: hidden;
 }
@@ -245,9 +245,21 @@
     font-size: 200px;
     font-family: var(--font-display);
     font-weight: 700;
-    color: rgba(255,255,255,0.015);
+    color: rgba(0,0,0,0.03);
     pointer-events: none;
     line-height: 1;
+}
+
+.film-reels-section .film-section-tag {
+    color: var(--film-red);
+}
+
+.film-reels-section .film-section-title {
+    color: #000;
+}
+
+.film-reels-section .film-section-subtitle {
+    color: #555;
 }
 
 .reels-cinema-grid {
@@ -373,10 +385,333 @@
     z-index: 4;
 }
 
+/* ====================== LONG-FORM VIDEOS ====================== */
+.film-longform-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.film-longform-section .film-section-tag {
+    color: var(--film-red);
+}
+
+.film-longform-section .film-section-title {
+    color: #000;
+}
+
+.film-longform-section .film-section-subtitle {
+    color: #555;
+}
+
+.longform-video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.longform-video-card {
+    display: flex;
+    align-items: stretch;
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.longform-video-card:hover {
+    border-color: rgba(229, 9, 20, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+}
+
+.longform-video-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.longform-video-thumb {
+    flex: 1;
+    position: relative;
+    min-height: 320px;
+}
+
+.longform-video-thumb .yt-facade {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.longform-video-thumb .yt-facade img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.longform-video-card:hover .yt-facade img {
+    transform: scale(1.05);
+}
+
+.longform-video-thumb .yt-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: var(--film-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.longform-video-card:hover .yt-play {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 15px 50px rgba(229,9,20,0.5);
+}
+
+.longform-video-thumb .yt-play svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    margin-left: 3px;
+}
+
+.longform-video-info {
+    flex: 0.6;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.longform-video-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.longform-video-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.longform-video-tag {
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+}
+
+/* ====================== BEYOND THE SHOOT (ADDITIONAL SERVICES) ====================== */
+.film-beyond-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.film-beyond-section .film-section-tag {
+    color: var(--film-red);
+}
+
+.film-beyond-section .film-section-title {
+    color: #000;
+}
+
+.film-beyond-section .film-section-subtitle {
+    color: #555;
+}
+
+.beyond-services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.beyond-service-card {
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 45px 40px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.beyond-service-card:hover {
+    border-color: rgba(229, 9, 20, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.beyond-service-tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--film-red);
+    margin-bottom: 15px;
+}
+
+.beyond-service-title {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.beyond-service-desc {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.beyond-service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.beyond-service-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s;
+}
+
+.beyond-service-link:hover {
+    color: var(--film-red);
+}
+
+.beyond-service-link:hover svg {
+    transform: translateX(4px);
+}
+
+/* ====================== TRANSPARENCY & LOGISTICS ====================== */
+.film-logistics-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.film-logistics-section .film-section-tag {
+    color: var(--film-red);
+}
+
+.film-logistics-section .film-section-title {
+    color: #000;
+}
+
+.film-logistics-section .film-section-subtitle {
+    color: #555;
+}
+
+.logistics-note-card {
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-left: 3px solid var(--film-red);
+    border-radius: 6px;
+    padding: 50px;
+}
+
+.logistics-note-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--film-red);
+    margin-bottom: 20px;
+}
+
+.logistics-note-tag::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--film-red);
+}
+
+.logistics-note-statement {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 700;
+    color: #000;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.logistics-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.logistics-checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.logistics-checklist-item strong {
+    color: #000;
+}
+
+.logistics-checklist-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.logistics-checklist-icon.ok {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.logistics-checklist-icon.note {
+    background: rgba(229, 9, 20, 0.15);
+    color: var(--film-red);
+}
+
 /* ====================== CTA SECTION ====================== */
 .film-cta-section {
     padding: 120px 20px;
-    background: linear-gradient(135deg, #111 0%, #000 100%);
+    background: #fff;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -390,7 +725,7 @@
     transform: translate(-50%, -50%);
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(229,9,20,0.08), transparent 70%);
+    background: radial-gradient(circle, rgba(229,9,20,0.05), transparent 70%);
     pointer-events: none;
 }
 
@@ -401,6 +736,7 @@
     text-transform: uppercase;
     margin-bottom: 20px;
     line-height: 1;
+    color: #000;
 }
 
 .film-cta-title span {
@@ -409,7 +745,7 @@
 
 .film-cta-desc {
     font-size: 18px;
-    color: #666;
+    color: #555;
     margin-bottom: 40px;
     max-width: 500px;
     margin-left: auto;
@@ -435,10 +771,10 @@
 }
 
 .film-cta-btn:hover {
-    background: #fff;
-    color: #000;
+    background: #000;
+    color: #fff;
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(229,9,20,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
 .film-cta-btn svg {
@@ -449,6 +785,69 @@
 
 .film-cta-btn:hover svg {
     transform: translateX(5px);
+}
+
+.film-cta-form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.film-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+.film-cta-field {
+    position: relative;
+    flex: 1 1 calc(50% - 20px);
+}
+
+.film-cta-field.full-width {
+    flex: 1 1 100%;
+}
+
+.film-cta-field::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 1px;
+    background-color: #999;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform-origin: left center;
+    transform: translateX(100%) rotate(-35deg);
+}
+
+.film-cta-field input {
+    width: 100%;
+    padding: 16px 4px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.film-cta-field input::placeholder {
+    color: #888;
+}
+
+.film-cta-field input:focus {
+    outline: none;
+    border-bottom-color: var(--film-red);
+}
+
+.film-cta-submit-row {
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* ====================== VIDEO LIGHTBOX ====================== */
@@ -524,12 +923,50 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
+
+    .longform-video-card,
+    .longform-video-card.reverse {
+        flex-direction: column;
+    }
+
+    .longform-video-thumb {
+        min-height: 280px;
+    }
+
+    .longform-video-info {
+        padding: 30px 25px;
+    }
+
+    .beyond-services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 768px) {
     .film-hero {
         min-height: 55vh;
         padding: 120px 20px 80px;
+    }
+
+    .film-beyond-section {
+        padding: 60px 0;
+    }
+
+    .beyond-service-card {
+        padding: 35px 25px;
+    }
+
+    .film-cta-field {
+        flex: 1 1 100%;
+    }
+
+    .film-logistics-section {
+        padding: 60px 0;
+    }
+
+    .logistics-note-card {
+        padding: 30px 25px;
     }
 
     .film-hero-stats {
@@ -540,7 +977,8 @@
         font-size: 32px;
     }
 
-    .film-reels-section {
+    .film-reels-section,
+    .film-longform-section {
         padding: 70px 0;
     }
 
@@ -555,6 +993,14 @@
     }
     .reel-cinema-item:hover {
         transform: translateY(-5px) !important;
+    }
+
+    .longform-video-title {
+        font-size: 18px;
+    }
+
+    .longform-video-desc {
+        font-size: 13px;
     }
 
     .film-cta-section {
@@ -608,11 +1054,9 @@
     <section class="film-hero" id="film-hero">
         <div class="film-hero-bg"></div>
         <div class="film-hero-content">
-            <div class="film-hero-badge">Real Estate Filming</div>
-            <h1 class="film-hero-title">Real Estate <span>Filming</span></h1>
+            <h1 class="film-hero-title">Real Estate <span>Ads</span></h1>
             <p class="film-hero-desc">
-                Cinematic property walkthroughs and drone aerials that help builders and brokers showcase
-                every project at its best and sell faster.
+                From cinematic indoor walkthroughs to sweeping drone shots, we produce premium video ads engineered to grab attention and sell properties faster.
             </p>
             <div class="film-hero-stats">
                 <div class="film-stat">
@@ -643,54 +1087,51 @@
     <section class="film-reels-section" id="sec-reels">
         <div class="film-container">
             <div class="film-section-header film-reveal">
-                <div class="film-section-tag">02 — Reels & Short Content</div>
+                <div class="film-section-tag">What It Is — 01 — Short-Form Videos</div>
                 <h2 class="film-section-title">Scroll-Stopping<br>Short Content</h2>
-                <p class="film-section-subtitle">High-conversion ad films, reels, and UGC content engineered for social media performance.</p>
+                <p class="film-section-subtitle">Fast-paced vertical videos tailored for real estate. Capture attention instantly and generate quick leads.</p>
             </div>
 
             <div class="reels-cinema-grid">
                 {{-- Reel 1: Product Launch Ad --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="_UagDA4XyFM">
-                    <div class="reel-cinema-badge">Instagram</div>
+                <div class="reel-cinema-item film-reveal" data-video-id="vxP6PPDu-I8">
                     <div class="reel-cinema-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/_UagDA4XyFM/hqdefault.jpg" alt="Product Launch Ad" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/vxP6PPDu-I8/hqdefault.jpg" alt="Product Launch Ad" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="reel-cinema-overlay">
-                        <h4>Product Launch Ad</h4>
-                        <span>Performance Marketing</span>
-                    </div>
-                </div>
-
-                {{-- Reel 2: Brand Awareness --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="MoEvrnlSy7U">
-                    <div class="reel-cinema-badge">YouTube</div>
-                    <div class="reel-cinema-thumb">
-                        <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/MoEvrnlSy7U/hqdefault.jpg" alt="Brand Awareness Reel" loading="lazy" decoding="async">
-                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-                        </div>
-                    </div>
-                    <div class="reel-cinema-overlay">
-                        <h4>Brand Awareness Reel</h4>
+                        <h4>Veenasana Interior Solutions</h4>
                         <span>UGC Content</span>
                     </div>
                 </div>
 
-                {{-- Reel 3: Conversion Campaign --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="sQcTZugZne0">
-                    <div class="reel-cinema-badge">Meta Ad</div>
+                {{-- Reel 2: Brand Awareness --}}
+                <div class="reel-cinema-item film-reveal" data-video-id="ESDd09xZ1_w">
                     <div class="reel-cinema-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/sQcTZugZne0/hqdefault.jpg" alt="Conversion Campaign" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/ESDd09xZ1_w/hqdefault.jpg" alt="Brand Awareness Reel" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="reel-cinema-overlay">
-                        <h4>Conversion Campaign</h4>
-                        <span>Performance Ad</span>
+                        <h4>SCDA M3M Capital</h4>
+                        <span>Featured Reel</span>
+                    </div>
+                </div>
+
+                {{-- Reel 3: Conversion Campaign --}}
+                <div class="reel-cinema-item film-reveal" data-video-id="_Dd1WU4yNvk">
+                    <div class="reel-cinema-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/_Dd1WU4yNvk/hqdefault.jpg" alt="Conversion Campaign" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="reel-cinema-overlay">
+                        <h4>Gaurs Real Estate</h4>
+                        <span>Branded Ad</span>
                     </div>
                 </div>
 
@@ -772,15 +1213,183 @@
         </div>
     </section>
 
+    {{-- ====================== LONG-FORM VIDEOS ====================== --}}
+    <section class="film-longform-section" id="sec-longform">
+        <div class="film-container">
+            <div class="film-section-header film-reveal">
+                <div class="film-section-tag">What It Is — 02 — Long-Form Videos</div>
+                <h2 class="film-section-title">Cinematic<br>Property Walkthroughs</h2>
+                <p class="film-section-subtitle">Cinematic YouTube walkthroughs, property tours, and horizontal website feature videos. Perfect for deep engagement.</p>
+            </div>
+
+            <div class="longform-video-list">
+                {{-- Long-Form 1 --}}
+                <div class="longform-video-card film-reveal" data-video-id="iaLUi722K9g">
+                    <div class="longform-video-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/iaLUi722K9g/maxresdefault.jpg" alt="Luxury Flat Walkthrough" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="longform-video-info">
+                        <h3 class="longform-video-title">Luxury Flat Walkthrough</h3>
+                        <p class="longform-video-desc">
+                            A guided, cinematic tour through a premium flat — layout, finish and amenities
+                            captured to give buyers a real sense of the space.
+                        </p>
+                        <span class="longform-video-tag">Property Tour</span>
+                    </div>
+                </div>
+
+                {{-- Long-Form 2 --}}
+                <div class="longform-video-card reverse film-reveal" data-video-id="8MfZGeMuMlE">
+                    <div class="longform-video-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/8MfZGeMuMlE/maxresdefault.jpg" alt="Commercial Project Walkthrough" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="longform-video-info">
+                        <h3 class="longform-video-title">Commercial Project Walkthrough</h3>
+                        <p class="longform-video-desc">
+                            Aerial and ground coverage of a commercial development, highlighting scale,
+                            location advantages and connectivity for investors.
+                        </p>
+                        <span class="longform-video-tag">Drone & Aerial</span>
+                    </div>
+                </div>
+
+                {{-- Long-Form 3 --}}
+                <div class="longform-video-card film-reveal" data-video-id="ok2COviyVHg">
+                    <div class="longform-video-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/ok2COviyVHg/maxresdefault.jpg" alt="Penthouse Walkthrough" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="longform-video-info">
+                        <h3 class="longform-video-title">Penthouse Walkthrough</h3>
+                        <p class="longform-video-desc">
+                            A cinematic walkthrough of a premium penthouse — layout, views and finish
+                            captured to give buyers a real sense of the space.
+                        </p>
+                        <span class="longform-video-tag">Property Tour</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ====================== BEYOND THE SHOOT (ADDITIONAL SERVICES) ====================== --}}
+    <section class="film-beyond-section" id="sec-beyond">
+        <div class="film-container">
+            <div class="film-section-header film-reveal">
+                <div class="film-section-tag">03 — Beyond The Shoot</div>
+                <h2 class="film-section-title">We Don't Just Shoot.<br>We Build The Machine.</h2>
+                <p class="film-section-subtitle">We're not just a camera crew — we build the full system that turns these videos into actual leads.</p>
+            </div>
+
+            <div class="beyond-services-grid">
+                <div class="beyond-service-card film-reveal">
+                    <div class="beyond-service-tag">Additional Service</div>
+                    <h3 class="beyond-service-title">Landing Page Design</h3>
+                    <p class="beyond-service-desc">
+                        We build custom, high-converting landing pages tailored to the property or the
+                        agent's brand — built to turn video views into enquiries.
+                    </p>
+                    <a href="{{ route('web-design-agency') }}" class="beyond-service-link">
+                        Explore This Service
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="beyond-service-card film-reveal">
+                    <div class="beyond-service-tag">Additional Service</div>
+                    <h3 class="beyond-service-title">Meta & Google Ads</h3>
+                    <p class="beyond-service-desc">
+                        We set up the targeting and optimization to put these videos in front of actual
+                        buyers and sellers, not just random views.
+                    </p>
+                    <a href="{{ route('performance-marketing-agency') }}" class="beyond-service-link">
+                        Explore This Service
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- ====================== TRANSPARENCY & LOGISTICS ====================== --}}
+    <section class="film-logistics-section" id="sec-logistics">
+        <div class="film-container">
+            <div class="film-section-header film-reveal">
+                <div class="film-section-tag">04 — Transparency & Logistics</div>
+                <h2 class="film-section-title">No Surprises.<br>Just Clarity.</h2>
+                <p class="film-section-subtitle">Addressing the logistics upfront so there are no surprises later — here's exactly how travel works.</p>
+            </div>
+
+            <div class="logistics-note-card film-reveal">
+                <p class="logistics-note-statement">
+                    We exclusively shoot within the Delhi NCR region. No hidden charges,
+                    no surprise travel bills.
+                </p>
+                <div class="logistics-checklist">
+                    <div class="logistics-checklist-item">
+                        <span class="logistics-checklist-icon ok">+</span>
+                        <span><strong>Delhi NCR only</strong> — our production team covers Delhi, Gurgaon, Noida and the rest of the NCR region.</span>
+                    </div>
+                    <div class="logistics-checklist-item">
+                        <span class="logistics-checklist-icon ok">+</span>
+                        <span><strong>All filming within NCR is fully inclusive</strong> — no hidden charges.</span>
+                    </div>
+                    <div class="logistics-checklist-item">
+                        <span class="logistics-checklist-icon note">−</span>
+                        <span><strong>Travel arrangements for our team and equipment</strong> to and from the shoot location are arranged by the client.</span>
+                    </div>
+                    <div class="logistics-checklist-item">
+                        <span class="logistics-checklist-icon note">−</span>
+                        <span><strong>We currently do not service projects outside Delhi NCR.</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- ====================== CTA ====================== --}}
     <section class="film-cta-section">
         <div class="film-container film-reveal">
             <h2 class="film-cta-title">Your Story.<br><span>Our Lens.</span></h2>
             <p class="film-cta-desc">Ready to create something cinematic? Let's bring your brand to life with world-class production.</p>
-            <a href="{{ route('contact') }}" class="film-cta-btn">
-                Start Your Project
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-            </a>
+
+            <form class="film-cta-form" action="{{ route('project-form') }}" method="post">
+                @csrf
+                <input type="hidden" name="url" value="{{ Request::url() }}">
+                <div class="film-cta-row">
+                    <div class="film-cta-field">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="film-cta-field">
+                        <input type="text" name="company_name" placeholder="Company Name" required>
+                    </div>
+                    <div class="film-cta-field">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="film-cta-field">
+                        <input type="number" name="mobile" placeholder="Contact Number" required>
+                        @error('mobile')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="film-cta-field full-width">
+                        <input type="text" name="requirement" placeholder="Requirement" required>
+                    </div>
+                </div>
+                <div class="film-cta-submit-row">
+                    <button type="submit" class="film-cta-btn">
+                        Start Your Project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </form>
         </div>
     </section>
 
