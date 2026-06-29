@@ -1,5 +1,5 @@
 @extends('layout.visitor', [
-    'title' => 'Real Estate Ads Agency in Gurgaon | Thumbpin',
+    'title' => 'Real Estate Video Ads Agency in Gurgaon | Thumbpin',
     'description' => 'Thumbpin produces cinematic real estate ad films, drone walkthroughs and property promo reels that help builders and brokers sell faster.',
     'footer_black' => 'footer-black',
 ])
@@ -326,6 +326,20 @@
 
 .reel-cinema-item:hover .yt-facade img {
     transform: scale(1.08);
+}
+
+.reel-preview-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.reel-cinema-item.is-previewing .yt-play {
+    opacity: 0 !important;
 }
 
 .reel-cinema-thumb .yt-play {
@@ -1069,7 +1083,7 @@
         <div class="film-hero-bg"></div>
         <div class="film-hero-overlay"></div>
         <div class="film-hero-content">
-            <h1 class="film-hero-title">Real Estate <span>Ads</span></h1>
+            <h1 class="film-hero-title">Real Estate <span>Video Ads</span></h1>
             <p class="film-hero-desc">
                 From cinematic indoor walkthroughs to sweeping drone shots, we produce premium video ads engineered to grab attention and sell properties faster.
             </p>
@@ -1123,15 +1137,15 @@
                 </div>
 
                 {{-- Reel 2: Brand Awareness --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="GK3WDAplvaA">
+                <div class="reel-cinema-item film-reveal" data-video-id="iqq0wHrYodA">
                     <div class="reel-cinema-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/GK3WDAplvaA/hqdefault.jpg" alt="Brand Awareness Reel" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/iqq0wHrYodA/hqdefault.jpg" alt="Brand Awareness Reel" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="reel-cinema-overlay">
-                        <h4>Conversational</h4>
+                        <h4>Yashika Group</h4>
                         <span>Featured Reel</span>
                     </div>
                 </div>
@@ -1298,10 +1312,6 @@
                         <span class="logistics-checklist-icon note">−</span>
                         <span><strong>Travel arrangements for our team and equipment</strong> to and from the shoot location are arranged by the client.</span>
                     </div>
-                    <div class="logistics-checklist-item">
-                        <span class="logistics-checklist-icon note">−</span>
-                        <span><strong>We currently do not service projects outside Delhi NCR.</strong></span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1388,12 +1398,49 @@
         if (e.key === 'Escape') closeLightbox();
     });
 
-    // ===== CLICK-TO-PLAY (All facade items) =====
-    var allCards = document.querySelectorAll('[data-video-id]');
-    allCards.forEach(function(card) {
+    // ===== CLICK-TO-PLAY (Long-form cards only) =====
+    var longformCards = document.querySelectorAll('.longform-video-card[data-video-id]');
+    longformCards.forEach(function(card) {
         card.addEventListener('click', function() {
             var vid = this.getAttribute('data-video-id');
             if (vid) openLightbox(vid);
+        });
+    });
+
+    // ===== HOVER-TO-PLAY (Reel/short-form cards) =====
+    var reelCards = document.querySelectorAll('.reel-cinema-item[data-video-id]');
+    reelCards.forEach(function(card) {
+        var vid = card.getAttribute('data-video-id');
+        var thumb = card.querySelector('.reel-cinema-thumb');
+        var iframe = null;
+
+        function startPreview() {
+            if (iframe || !vid) return;
+            iframe = document.createElement('iframe');
+            iframe.className = 'reel-preview-iframe';
+            iframe.src = 'https://www.youtube.com/embed/' + vid +
+                '?autoplay=1&controls=0&loop=1&playlist=' + vid +
+                '&rel=0&modestbranding=1&playsinline=1';
+            iframe.setAttribute('allow', 'autoplay; encrypted-media');
+            thumb.appendChild(iframe);
+            card.classList.add('is-previewing');
+        }
+
+        function stopPreview() {
+            if (!iframe) return;
+            iframe.remove();
+            iframe = null;
+            card.classList.remove('is-previewing');
+        }
+
+        card.addEventListener('mouseenter', startPreview);
+        card.addEventListener('mouseleave', stopPreview);
+        card.addEventListener('click', function() {
+            if (iframe) {
+                stopPreview();
+            } else {
+                startPreview();
+            }
         });
     });
 
