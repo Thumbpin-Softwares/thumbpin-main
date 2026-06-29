@@ -1,6 +1,7 @@
 @extends('layout.visitor', [
     'title' => 'Leading Creative Agency in Gurgaon | About Thumbpin',
     'description' => 'We are a team of creative thinkers, designers, and strategists in Gurgaon helping brands grow through impactful design and intelligent strategy.',
+    'keywords' => 'About Thumbpin, Thumbpin, Thumbpin agency, Thumbpin team, branding agency Gurgaon, branding agency Gurugram, creative agency Gurgaon, creative agency Gurugram, advertising agency Gurgaon, advertising agency Gurugram, design agency Gurgaon, design agency Gurugram, marketing agency Gurgaon, marketing agency Gurugram, creative studio Gurgaon, creative studio Gurugram, brand strategy agency Gurgaon, brand strategy agency Gurugram',
     'footer_black' => 'footer-black'
 ])
 

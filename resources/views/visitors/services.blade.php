@@ -1,6 +1,7 @@
 @extends('layout.visitor', [
-    'title' => 'Social Media Agency in Gurgaon | Thumbpin',
-    'description' => 'Thumbpin is a digital advertising agency in Gurgaon that can help your business expand and stay connected effectively with your customer throughout their digital journey.'
+    'title' => 'Creative Agency Services in Gurgaon & Gurugram | Thumbpin',
+    'description' => 'Explore Thumbpin’s branding, advertising, digital marketing, web design, website development, video production, social media marketing, event marketing, and real estate marketing services in Gurgaon and Gurugram.',
+    'keywords' => 'Thumbpin services, branding agency Gurgaon, branding agency Gurugram, advertising agency Gurgaon, advertising agency Gurugram, digital marketing agency Gurgaon, digital marketing agency Gurugram, creative agency Gurgaon, creative agency Gurugram, social media marketing Gurgaon, social media marketing Gurugram, web design agency Gurgaon, web design agency Gurugram, website development Gurgaon, website development Gurugram, video production agency Gurgaon, video production agency Gurugram, event marketing agency Gurgaon, event marketing agency Gurugram, real estate marketing agency Gurgaon, real estate advertising agency Gurgaon'
 ])
 
 @section('head')
