@@ -562,19 +562,11 @@
 }
 
 .beyond-service-card {
-    background: #f5f5f5;
-    border: 1px solid #e5e5e5;
-    border-radius: 20px;
+    background: #fff;
+    border-left: 3px solid var(--film-red);
     padding: 45px 40px;
-    transition: var(--transition);
     display: flex;
     flex-direction: column;
-}
-
-.beyond-service-card:hover {
-    border-color: rgba(229, 9, 20, 0.3);
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .beyond-service-tag {
@@ -653,10 +645,8 @@
 }
 
 .logistics-note-card {
-    background: #f5f5f5;
-    border: 1px solid #e5e5e5;
+    background: #fff;
     border-left: 3px solid var(--film-red);
-    border-radius: 20px;
     padding: 50px;
 }
 
