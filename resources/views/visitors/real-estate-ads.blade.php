@@ -86,10 +86,17 @@
 .film-hero-bg {
     position: absolute;
     inset: 0;
-    background: url('https://img.youtube.com/vi/UJtRgvgHdxQ/maxresdefault.jpg') center/cover no-repeat;
-    opacity: 0.15;
-    filter: saturate(0) contrast(1.2);
+    background: url('{{ asset('assets/img/real-estate-hero.jpg') }}') center/cover no-repeat;
+    opacity: 0.4;
+    filter: saturate(0.6) contrast(1.1);
     z-index: 1;
+}
+
+.film-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
 }
 
 .film-hero-content {
@@ -231,7 +238,7 @@
 
 /* ====================== REELS / SHORT CONTENT ====================== */
 .film-reels-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #fff;
     position: relative;
     overflow: hidden;
@@ -260,6 +267,10 @@
 
 .film-reels-section .film-section-subtitle {
     color: #555;
+}
+
+.film-reels-section .film-section-header {
+    margin-bottom: 30px;
 }
 
 .reels-cinema-grid {
@@ -387,7 +398,7 @@
 
 /* ====================== LONG-FORM VIDEOS ====================== */
 .film-longform-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #fff;
 }
 
@@ -401,6 +412,10 @@
 
 .film-longform-section .film-section-subtitle {
     color: #555;
+}
+
+.film-longform-section .film-section-header {
+    margin-bottom: 30px;
 }
 
 .longform-video-list {
@@ -519,7 +534,7 @@
 
 /* ====================== BEYOND THE SHOOT (ADDITIONAL SERVICES) ====================== */
 .film-beyond-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #fff;
 }
 
@@ -533,6 +548,10 @@
 
 .film-beyond-section .film-section-subtitle {
     color: #555;
+}
+
+.film-beyond-section .film-section-header {
+    margin-bottom: 30px;
 }
 
 .beyond-services-grid {
@@ -612,7 +631,7 @@
 
 /* ====================== TRANSPARENCY & LOGISTICS ====================== */
 .film-logistics-section {
-    padding: 100px 0;
+    padding: 60px 0;
     background: #fff;
 }
 
@@ -626,6 +645,10 @@
 
 .film-logistics-section .film-section-subtitle {
     color: #555;
+}
+
+.film-logistics-section .film-section-header {
+    margin-bottom: 30px;
 }
 
 .logistics-note-card {
@@ -710,7 +733,7 @@
 
 /* ====================== CTA SECTION ====================== */
 .film-cta-section {
-    padding: 120px 20px;
+    padding: 70px 20px;
     background: #fff;
     text-align: center;
     position: relative;
@@ -979,7 +1002,7 @@
 
     .film-reels-section,
     .film-longform-section {
-        padding: 70px 0;
+        padding: 50px 0;
     }
 
     .reels-cinema-grid {
@@ -1004,7 +1027,7 @@
     }
 
     .film-cta-section {
-        padding: 80px 20px;
+        padding: 50px 20px;
     }
 
     .film-reels-section::before {
@@ -1053,6 +1076,7 @@
     {{-- ====================== HERO ====================== --}}
     <section class="film-hero" id="film-hero">
         <div class="film-hero-bg"></div>
+        <div class="film-hero-overlay"></div>
         <div class="film-hero-content">
             <h1 class="film-hero-title">Real Estate <span>Ads</span></h1>
             <p class="film-hero-desc">
@@ -1108,15 +1132,15 @@
                 </div>
 
                 {{-- Reel 2: Brand Awareness --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="ESDd09xZ1_w">
+                <div class="reel-cinema-item film-reveal" data-video-id="GK3WDAplvaA">
                     <div class="reel-cinema-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/ESDd09xZ1_w/hqdefault.jpg" alt="Brand Awareness Reel" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/GK3WDAplvaA/hqdefault.jpg" alt="Brand Awareness Reel" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="reel-cinema-overlay">
-                        <h4>SCDA M3M Capital</h4>
+                        <h4>Conversational</h4>
                         <span>Featured Reel</span>
                     </div>
                 </div>
@@ -1136,77 +1160,16 @@
                 </div>
 
                 {{-- Reel 4: Testimonial UGC --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="V_-e9JaCnuM">
-                    <div class="reel-cinema-badge">UGC</div>
+                <div class="reel-cinema-item film-reveal" data-video-id="AtbeokcSRW0">
                     <div class="reel-cinema-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/V_-e9JaCnuM/hqdefault.jpg" alt="Testimonial UGC" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/AtbeokcSRW0/hqdefault.jpg" alt="Testimonial UGC" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="reel-cinema-overlay">
-                        <h4>Testimonial UGC</h4>
-                        <span>User Generated</span>
-                    </div>
-                </div>
-
-                {{-- Reel 5: App Install Ad --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="Oj4FmmUoCKA">
-                    <div class="reel-cinema-badge">Reel Ad</div>
-                    <div class="reel-cinema-thumb">
-                        <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/Oj4FmmUoCKA/hqdefault.jpg" alt="App Install Ad" loading="lazy" decoding="async">
-                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-                        </div>
-                    </div>
-                    <div class="reel-cinema-overlay">
-                        <h4>App Install Ad</h4>
-                        <span>Performance</span>
-                    </div>
-                </div>
-
-                {{-- Reel 6: High-Retention Reel --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="CiKv3ezY9b8">
-                    <div class="reel-cinema-badge">Sales Ad</div>
-                    <div class="reel-cinema-thumb">
-                        <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/CiKv3ezY9b8/hqdefault.jpg" alt="High-Retention Reel" loading="lazy" decoding="async">
-                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-                        </div>
-                    </div>
-                    <div class="reel-cinema-overlay">
-                        <h4>High-Retention Reel</h4>
-                        <span>Conversion Focus</span>
-                    </div>
-                </div>
-
-                {{-- Reel 7 --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="ee1nPF5evyQ">
-                    <div class="reel-cinema-badge">Reel</div>
-                    <div class="reel-cinema-thumb">
-                        <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/ee1nPF5evyQ/hqdefault.jpg" alt="Brand Reel" loading="lazy" decoding="async">
-                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-                        </div>
-                    </div>
-                    <div class="reel-cinema-overlay">
-                        <h4>Brand Reel</h4>
-                        <span>Social Content</span>
-                    </div>
-                </div>
-
-                {{-- Reel 8 --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="4T8YyPqliog">
-                    <div class="reel-cinema-badge">Short</div>
-                    <div class="reel-cinema-thumb">
-                        <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/4T8YyPqliog/hqdefault.jpg" alt="Engagement Short" loading="lazy" decoding="async">
-                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
-                        </div>
-                    </div>
-                    <div class="reel-cinema-overlay">
-                        <h4>Engagement Short</h4>
-                        <span>Social Content</span>
+                        <h4>Cinematic Reel</h4>
+                        <span>Photoshoot</span>
                     </div>
                 </div>
             </div>
@@ -1219,7 +1182,7 @@
             <div class="film-section-header film-reveal">
                 <div class="film-section-tag">What It Is — 02 — Long-Form Videos</div>
                 <h2 class="film-section-title">Cinematic<br>Property Walkthroughs</h2>
-                <p class="film-section-subtitle">Cinematic YouTube walkthroughs, property tours, and horizontal website feature videos. Perfect for deep engagement.</p>
+                <p class="film-section-subtitle">Cinematic tours and detailed walkthroughs. Designed to keep buyers watching and drive deep engagement.</p>
             </div>
 
             <div class="longform-video-list">
@@ -1232,20 +1195,19 @@
                         </div>
                     </div>
                     <div class="longform-video-info">
-                        <h3 class="longform-video-title">Luxury Flat Walkthrough</h3>
+                        <h3 class="longform-video-title">LUXURY FLATS WALKTHROUGH</h3>
                         <p class="longform-video-desc">
-                            A guided, cinematic tour through a premium flat — layout, finish and amenities
-                            captured to give buyers a real sense of the space.
+                            A guided cinematic tour of premium flats. We capture the layout, finishes, and amenities to give buyers a true sense of the space.
                         </p>
                         <span class="longform-video-tag">Property Tour</span>
                     </div>
                 </div>
 
                 {{-- Long-Form 2 --}}
-                <div class="longform-video-card reverse film-reveal" data-video-id="8MfZGeMuMlE">
+                <div class="longform-video-card reverse film-reveal" data-video-id="tHEpgKOeZP8">
                     <div class="longform-video-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/8MfZGeMuMlE/maxresdefault.jpg" alt="Commercial Project Walkthrough" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/tHEpgKOeZP8/hqdefault.jpg" alt="Commercial Project Walkthrough" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
