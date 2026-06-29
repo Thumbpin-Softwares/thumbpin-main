@@ -282,7 +282,7 @@
 
 .reel-cinema-item {
     position: relative;
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
     background: #000;
     cursor: pointer;
@@ -429,6 +429,7 @@
     align-items: stretch;
     background: #f7f7f7;
     border: 1px solid #e5e5e5;
+    border-radius: 20px;
     overflow: hidden;
     transition: var(--transition);
 }
@@ -563,7 +564,7 @@
 .beyond-service-card {
     background: #f5f5f5;
     border: 1px solid #e5e5e5;
-    border-radius: 8px;
+    border-radius: 20px;
     padding: 45px 40px;
     transition: var(--transition);
     display: flex;
@@ -655,7 +656,7 @@
     background: #f5f5f5;
     border: 1px solid #e5e5e5;
     border-left: 3px solid var(--film-red);
-    border-radius: 6px;
+    border-radius: 20px;
     padding: 50px;
 }
 
@@ -957,7 +958,7 @@
     }
 
     .longform-video-info {
-        padding: 30px 25px;
+        padding: 10px 25px 30px;
     }
 
     .beyond-services-grid {
