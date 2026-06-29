@@ -1190,7 +1190,7 @@
                 <div class="longform-video-card film-reveal" data-video-id="iaLUi722K9g">
                     <div class="longform-video-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/iaLUi722K9g/maxresdefault.jpg" alt="Luxury Flat Walkthrough" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/long-1.jpg') }}" alt="Luxury Flat Walkthrough" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
@@ -1207,7 +1207,7 @@
                 <div class="longform-video-card reverse film-reveal" data-video-id="tHEpgKOeZP8">
                     <div class="longform-video-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/tHEpgKOeZP8/hqdefault.jpg" alt="Commercial Project Walkthrough" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/long-2.jpg') }}" alt="Commercial Project Walkthrough" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
@@ -1222,18 +1222,18 @@
                 </div>
 
                 {{-- Long-Form 3 --}}
-                <div class="longform-video-card film-reveal" data-video-id="ok2COviyVHg">
+                <div class="longform-video-card film-reveal" data-video-id="J7GYi2posW4">
                     <div class="longform-video-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/ok2COviyVHg/maxresdefault.jpg" alt="Penthouse Walkthrough" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/long-3.jpg') }}" alt="Plotted Land Walkthrough" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="longform-video-info">
-                        <h3 class="longform-video-title">Penthouse Walkthrough</h3>
+                        <h3 class="longform-video-title">Plotted Land Walkthrough</h3>
                         <p class="longform-video-desc">
-                            A cinematic walkthrough of a premium penthouse — layout, views and finish
-                            captured to give buyers a real sense of the space.
+                            A guided walkthrough of a plotted land development — boundaries, roads and
+                            surroundings captured to give buyers a clear sense of the plot.
                         </p>
                         <span class="longform-video-tag">Property Tour</span>
                     </div>
