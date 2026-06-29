@@ -1177,6 +1177,20 @@
                         <span>Photoshoot</span>
                     </div>
                 </div>
+
+                {{-- Reel 5 --}}
+                <div class="reel-cinema-item film-reveal" data-video-id="vHdLpqGBSHc">
+                    <div class="reel-cinema-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/vHdLpqGBSHc/hqdefault.jpg" alt="Cinematic Reel" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="reel-cinema-overlay">
+                        <h4>Creator Reel</h4>
+                        <span>UGC Content</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1291,22 +1305,22 @@
             <div class="film-section-header film-reveal">
                 <div class="film-section-tag">04 — Transparency & Logistics</div>
                 <h2 class="film-section-title">No Surprises.<br>Just Clarity.</h2>
-                <p class="film-section-subtitle">Addressing the logistics upfront so there are no surprises later — here's exactly how travel works.</p>
+                <p class="film-section-subtitle">Addressing the logistics upfront so there are no surprises later here's exactly how travel works.</p>
             </div>
 
             <div class="logistics-note-card film-reveal">
                 <p class="logistics-note-statement">
-                    We exclusively shoot within the Delhi NCR region. No hidden charges,
-                    no surprise travel bills.
+                    We shoot anywhere in India travel and accommodation
+                    expenses for our team are covered by the client.
                 </p>
                 <div class="logistics-checklist">
                     <div class="logistics-checklist-item">
                         <span class="logistics-checklist-icon ok">+</span>
-                        <span><strong>Delhi NCR only</strong> — our production team covers Delhi, Gurgaon, Noida and the rest of the NCR region.</span>
+                        <span><strong>Delhi NCR and beyond</strong> our production team covers Delhi, Gurgaon, Noida, the rest of the NCR region, and anywhere else in India.</span>
                     </div>
                     <div class="logistics-checklist-item">
-                        <span class="logistics-checklist-icon ok">+</span>
-                        <span><strong>All filming within NCR is fully inclusive</strong> — no hidden charges.</span>
+                        <span class="logistics-checklist-icon note">−</span>
+                        <span><strong>Travel and accommodation expenses</strong> for our team and equipment, within NCR or outside, are covered by the client.</span>
                     </div>
                     <div class="logistics-checklist-item">
                         <span class="logistics-checklist-icon note">−</span>
