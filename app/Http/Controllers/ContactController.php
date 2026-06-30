@@ -134,6 +134,10 @@ class ContactController extends Controller
 
         // Mail::to(env('MAIL_TO_ADDRESS'))->send(new ProjectFormMail($data));
 
+        if (request()->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'Thank you! We\'ll be in touch shortly.']);
+        }
+
         return redirect(route('thank-you'));
 
     }
