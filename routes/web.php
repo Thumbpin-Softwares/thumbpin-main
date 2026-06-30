@@ -83,6 +83,7 @@ Route::post('/task-submit', [ContactController::class, 'task_submit'])->name('ta
 Route::post('/project-form', [ContactController::class, 'project_form'])->name('project-form');
 Route::post('/advertising-agency-contact', [AdvertisingAgencyContactController::class, 'store'])->name('advertising-agency-contact');
 Route::post('/video-production-lead', [\App\Http\Controllers\VideoProductionLeadController::class, 'store'])->name('video-production-lead');
+Route::post('/real-estate-lead', [\App\Http\Controllers\RealEstateLeadController::class, 'store'])->name('real-estate-lead');
 Route::post('/api/voice-parse', [\App\Http\Controllers\VoiceParseController::class, 'parse'])->name('voice-parse');
 
 Route::group(['prefix' => 'admin'], function () {

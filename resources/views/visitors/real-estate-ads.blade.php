@@ -570,32 +570,80 @@
 }
 
 .beyond-services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .beyond-service-card {
     background: #fff;
-    border-left: 3px solid var(--film-red);
+    border-left: none;
+    border-top: 1px solid #eee;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
+    min-height: 320px;
 }
 
-.beyond-service-img {
+.beyond-service-card:first-child {
+    border-top: none;
+}
+
+.beyond-service-card--reverse {
+    flex-direction: row-reverse;
+}
+
+.beyond-panel-img {
+    width: 42%;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.beyond-panel-img img {
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
     display: block;
 }
 
+.beyond-panel-img--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.beyond-panel-img--icon img {
+    width: auto;
+    height: auto;
+    max-width: 320px;
+    max-height: 320px;
+    object-fit: contain;
+}
+
+.beyond-corner-img {
+    display: none;
+}
+
+.beyond-service-img {
+    display: none;
+}
+
 .beyond-service-body {
-    padding: 40px 40px 45px;
+    flex: 1;
+    padding: 50px 50px 55px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    justify-content: center;
+    border-left: 4px solid var(--film-red);
+}
+
+.beyond-service-card--reverse .beyond-service-body {
+    border-left: none;
+    border-right: 4px solid var(--film-red);
 }
 
 .beyond-service-tag {
@@ -980,9 +1028,17 @@
         padding: 10px 25px 30px;
     }
 
-    .beyond-services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .beyond-service-card {
+        flex-direction: column !important;
+        min-height: unset;
+    }
+    .beyond-panel-img {
+        width: 100%;
+        height: 220px;
+    }
+    .beyond-service-body {
+        border-left: 4px solid var(--film-red) !important;
+        border-right: none !important;
     }
 }
 
@@ -996,8 +1052,8 @@
         padding: 60px 0;
     }
 
-    .beyond-service-card {
-        padding: 35px 25px;
+    .beyond-service-body {
+        padding: 35px 25px 40px;
     }
 
     .film-cta-field {
@@ -1317,6 +1373,316 @@
         </div>
     </section>
 
+    {{-- ====================== REAL ESTATE LEAD FORM ====================== --}}
+    <section class="re-lead-section">
+
+        {{-- Clickable strip --}}
+        <button type="button" id="re-lead-strip" class="re-lead-strip" aria-expanded="false">
+            <span class="rls-left">Start A Project Now</span>
+            <span class="rls-cta">Let's Get Started</span>
+            <span class="rls-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+        </button>
+
+        {{-- Collapsible form body --}}
+        <div id="re-lead-form-wrap" class="re-lead-form-wrap">
+            <div class="film-container">
+                <form id="re-lead-form" class="re-lead-form" novalidate>
+                    @csrf
+                    <div class="re-lead-row">
+                        <div class="re-lead-field">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="re-lead-field">
+                            <input type="text" name="company_name" placeholder="Company Name" required>
+                        </div>
+                    </div>
+                    <div class="re-lead-row">
+                        <div class="re-lead-field">
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="re-lead-field">
+                            <input type="tel" name="contact" placeholder="Contact Number" required>
+                        </div>
+                    </div>
+                    <div class="re-lead-row">
+                        <div class="re-lead-field re-lead-field--full">
+                            <input type="text" name="requirement" placeholder="Requirement" required>
+                        </div>
+                    </div>
+                    <div class="re-lead-row re-lead-row--submit-inline">
+                        <div class="re-lead-field">
+                            <input type="text" name="marketing_budget" placeholder="Marketing Budget (e.g. ₹25,000)" required>
+                        </div>
+                        <button type="submit" class="re-lead-btn" id="re-lead-submit">
+                            <span class="btn-text">Send Enquiry</span>
+                            <span class="btn-loading" style="display:none;">Sending…</span>
+                        </button>
+                    </div>
+                    <div id="re-lead-success" class="re-lead-success" style="display:none;"></div>
+                    <div id="re-lead-error" class="re-lead-error" style="display:none;"></div>
+                </form>
+            </div>
+        </div>
+
+        <style>
+        /* Strip */
+        .re-lead-strip {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: #111;
+            border: none;
+            border-top: 1px solid #1e1e1e;
+            border-bottom: 1px solid #1e1e1e;
+            padding: 24px 60px;
+            cursor: pointer;
+        }
+
+        .rls-left {
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--film-red);
+        }
+
+        .rls-cta {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fff;
+            background: var(--film-red);
+            padding: 14px 36px;
+            transition: background 0.25s;
+        }
+
+        .re-lead-strip:hover .rls-cta {
+            background: #c40812;
+        }
+
+        .rls-icon svg {
+            width: 22px;
+            height: 22px;
+            color: #555;
+            transition: transform 0.35s ease, color 0.25s;
+        }
+
+        .re-lead-strip[aria-expanded="true"] .rls-icon svg {
+            transform: rotate(180deg);
+            color: var(--film-red);
+        }
+
+        /* Collapsible body */
+        .re-lead-form-wrap {
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.45s ease, opacity 0.35s ease;
+            background: #0d0d0d;
+            border-bottom: 1px solid #1e1e1e;
+        }
+
+        .re-lead-form-wrap.is-open {
+            max-height: 900px;
+            opacity: 1;
+        }
+
+        .re-lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 48px 0 56px;
+        }
+
+        .re-lead-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 60px;
+        }
+
+        .re-lead-field {
+            position: relative;
+            padding-bottom: 36px;
+        }
+
+        .re-lead-field--full {
+            grid-column: 1 / -1;
+        }
+
+        .re-lead-field input,
+        .re-lead-field select {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #2a2a2a;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 15px;
+            padding: 14px 0;
+            outline: none;
+            transition: border-color 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .re-lead-field input::placeholder {
+            color: #444;
+        }
+
+        .re-lead-field select option {
+            background: #111;
+            color: #fff;
+        }
+
+        .re-lead-field select:invalid,
+        .re-lead-field select option[value=""] {
+            color: #444;
+        }
+
+        .re-lead-field input:focus,
+        .re-lead-field select:focus {
+            border-bottom-color: var(--film-red);
+        }
+
+        .re-lead-row--submit-inline {
+            display: flex;
+            align-items: flex-end;
+            gap: 16px;
+            padding-bottom: 0;
+        }
+
+        .re-lead-row--submit-inline .re-lead-field {
+            flex: 1;
+            padding-bottom: 0;
+        }
+
+        .re-lead-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--film-red);
+            color: #fff;
+            border: none;
+            padding: 14px 28px;
+            font-family: var(--font-body);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+            /* align with the input bottom border */
+            margin-bottom: 1px;
+        }
+
+        .re-lead-btn:hover  { background: #b00710; }
+        .re-lead-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .re-lead-success {
+            margin-top: 20px;
+            padding: 14px 18px;
+            background: rgba(0,200,100,0.08);
+            border-left: 3px solid #00c864;
+            color: #00c864;
+            font-size: 14px;
+        }
+
+        .re-lead-error {
+            margin-top: 20px;
+            padding: 14px 18px;
+            background: rgba(229,9,20,0.08);
+            border-left: 3px solid var(--film-red);
+            color: #ff4d4d;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .re-lead-strip {
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+                padding: 22px 24px;
+                text-align: center;
+            }
+            .rls-left { font-size: 10px; }
+            .rls-cta  { font-size: 12px; padding: 12px 28px; }
+            .rls-icon svg { width: 20px; height: 20px; }
+            .re-lead-row { grid-template-columns: 1fr; gap: 0; }
+            .re-lead-row--submit-inline { flex-direction: column; align-items: stretch; }
+            .re-lead-row--submit-inline .re-lead-field { padding-bottom: 36px; }
+            .re-lead-btn { width: 100%; justify-content: center; }
+        }
+        </style>
+
+        <script>
+        (function () {
+            var strip = document.getElementById('re-lead-strip');
+            var wrap  = document.getElementById('re-lead-form-wrap');
+
+            strip.addEventListener('click', function () {
+                var isOpen = wrap.classList.toggle('is-open');
+                strip.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            document.getElementById('re-lead-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var form      = this;
+                var btn       = document.getElementById('re-lead-submit');
+                var successEl = document.getElementById('re-lead-success');
+                var errorEl   = document.getElementById('re-lead-error');
+
+                btn.disabled = true;
+                btn.querySelector('.btn-text').style.display = 'none';
+                btn.querySelector('.btn-loading').style.display = '';
+                successEl.style.display = 'none';
+                errorEl.style.display   = 'none';
+
+                var data = new FormData(form);
+
+                fetch('{{ route('real-estate-lead') }}', {
+                    method: 'POST',
+                    headers: { 'X-CSRF-TOKEN': data.get('_token'), 'Accept': 'application/json' },
+                    body: data,
+                })
+                .then(function (res) { return res.json(); })
+                .then(function (json) {
+                    btn.disabled = false;
+                    btn.querySelector('.btn-text').style.display = '';
+                    btn.querySelector('.btn-loading').style.display = 'none';
+                    if (json.success) {
+                        successEl.textContent = json.message;
+                        successEl.style.display = 'block';
+                        form.reset();
+                        setTimeout(function () {
+                            wrap.classList.remove('is-open');
+                            strip.setAttribute('aria-expanded', 'false');
+                            successEl.style.display = 'none';
+                        }, 3000);
+                    } else {
+                        errorEl.textContent = json.message;
+                        errorEl.style.display = 'block';
+                    }
+                })
+                .catch(function () {
+                    btn.disabled = false;
+                    btn.querySelector('.btn-text').style.display = '';
+                    btn.querySelector('.btn-loading').style.display = 'none';
+                    errorEl.textContent = 'Something went wrong. Please try again.';
+                    errorEl.style.display = 'block';
+                });
+            });
+        }());
+        </script>
+    </section>
+
     {{-- ====================== BEYOND THE SHOOT (ADDITIONAL SERVICES) ====================== --}}
     <section class="film-beyond-section" id="sec-beyond">
         <div class="film-container">
@@ -1327,8 +1693,8 @@
             </div>
 
             <div class="beyond-services-grid">
+                {{-- Card 1: text left, image right --}}
                 <div class="beyond-service-card film-reveal">
-                    <img src="{{ asset('assets/img/real-estate-video-ads/webdesign.jpg') }}" alt="Landing Page Design" class="beyond-service-img" loading="lazy">
                     <div class="beyond-service-body">
                         <div class="beyond-service-tag">Additional Service</div>
                         <h3 class="beyond-service-title">Landing Page Design</h3>
@@ -1341,9 +1707,12 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
                         </a>
                     </div>
+                    <div class="beyond-panel-img beyond-panel-img--icon">
+                        <img src="{{ asset('assets/img/real-estate-video-ads/web_design.png') }}" alt="Landing Page Design" loading="lazy">
+                    </div>
                 </div>
-                <div class="beyond-service-card film-reveal">
-                    <img src="{{ asset('assets/img/real-estate-video-ads/ads.jpg') }}" alt="Meta & Google Ads" class="beyond-service-img" loading="lazy">
+                {{-- Card 2: image left, text right --}}
+                <div class="beyond-service-card beyond-service-card--reverse film-reveal">
                     <div class="beyond-service-body">
                         <div class="beyond-service-tag">Additional Service</div>
                         <h3 class="beyond-service-title">Meta & Google Ads</h3>
@@ -1355,6 +1724,9 @@
                             Explore This Service
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
                         </a>
+                    </div>
+                    <div class="beyond-panel-img beyond-panel-img--icon">
+                        <img src="{{ asset('assets/img/real-estate-video-ads/ads.png') }}" alt="Meta & Google Ads" loading="lazy">
                     </div>
                 </div>
             </div>
