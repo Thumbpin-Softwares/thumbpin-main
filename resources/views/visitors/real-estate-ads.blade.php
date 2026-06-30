@@ -1085,7 +1085,7 @@
         <div class="film-hero-content">
             <h1 class="film-hero-title">Real Estate <span>Video Ads</span></h1>
             <p class="film-hero-desc">
-                From cinematic indoor walkthroughs to sweeping drone shots, we produce premium video ads engineered to grab attention and sell properties faster.
+                From high-fashion model walkthroughs to precise, high-end editing, we produce premium video ads engineered to grab attention and sell properties faster.
             </p>
             <div class="film-hero-stats">
                 <div class="film-stat">
@@ -1123,16 +1123,16 @@
 
             <div class="reels-cinema-grid">
                 {{-- Reel 1: Product Launch Ad --}}
-                <div class="reel-cinema-item film-reveal" data-video-id="vxP6PPDu-I8">
+                <div class="reel-cinema-item film-reveal" data-video-id="OaWH39sli8I">
                     <div class="reel-cinema-thumb">
                         <div class="yt-facade">
-                            <img src="https://img.youtube.com/vi/vxP6PPDu-I8/hqdefault.jpg" alt="Product Launch Ad" loading="lazy" decoding="async">
+                            <img src="https://img.youtube.com/vi/OaWH39sli8I/hqdefault.jpg" alt="Product Launch Ad" loading="lazy" decoding="async">
                             <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
                         </div>
                     </div>
                     <div class="reel-cinema-overlay">
-                        <h4>Veenasana Interior Solutions</h4>
-                        <span>UGC Content</span>
+                        <h4>Reach Buzz 114</h4>
+                        <span>Commercial Content</span>
                     </div>
                 </div>
 
@@ -1191,6 +1191,48 @@
                         <span>UGC Content</span>
                     </div>
                 </div>
+
+                {{-- Reel 6 --}}
+                <div class="reel-cinema-item film-reveal" data-video-id="QaSbbGlLOkk">
+                    <div class="reel-cinema-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/QaSbbGlLOkk/hqdefault.jpg" alt="Cinematic Reel" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="reel-cinema-overlay">
+                        <h4>London Screen Mohali</h4>
+                        <span>Commercial Content</span>
+                    </div>
+                </div>
+
+                {{-- Reel 7 --}}
+                <div class="reel-cinema-item film-reveal" data-video-id="LnahKtDOZII">
+                    <div class="reel-cinema-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/LnahKtDOZII/hqdefault.jpg" alt="Cinematic Reel" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="reel-cinema-overlay">
+                        <h4>Platinum Park</h4>
+                        <span>Commercial Content</span>
+                    </div>
+                </div>
+
+                {{-- Reel 8 --}}
+                <div class="reel-cinema-item film-reveal" data-video-id="mjtbisBMB-A">
+                    <div class="reel-cinema-thumb">
+                        <div class="yt-facade">
+                            <img src="https://img.youtube.com/vi/mjtbisBMB-A/hqdefault.jpg" alt="Cinematic Reel" loading="lazy" decoding="async">
+                            <div class="yt-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg></div>
+                        </div>
+                    </div>
+                    <div class="reel-cinema-overlay">
+                        <h4>Grand Emporio</h4>
+                        <span>UGC content</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1241,7 +1283,7 @@
                 </div>
 
                 {{-- Long-Form 3 --}}
-                <div class="longform-video-card film-reveal" data-video-id="J7GYi2posW4">
+                <div class="longform-video-card film-reveal" data-video-id="-_522mOv58w">
                     <div class="longform-video-thumb">
                         <div class="yt-facade">
                             <img src="{{ asset('assets/img/long-3.jpg') }}" alt="Plotted Land Walkthrough" loading="lazy" decoding="async">
