@@ -578,9 +578,24 @@
 .beyond-service-card {
     background: #fff;
     border-left: 3px solid var(--film-red);
-    padding: 45px 40px;
+    padding: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+.beyond-service-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.beyond-service-body {
+    padding: 40px 40px 45px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .beyond-service-tag {
@@ -1265,7 +1280,7 @@
                 </div>
 
                 {{-- Long-Form 2 --}}
-                <div class="longform-video-card reverse film-reveal" data-video-id="tHEpgKOeZP8">
+                <div class="longform-video-card reverse film-reveal" data-video-id="4Fw2xtyUIWs">
                     <div class="longform-video-thumb">
                         <div class="yt-facade">
                             <img src="{{ asset('assets/img/long-2.jpg') }}" alt="Commercial Project Walkthrough" loading="lazy" decoding="async">
@@ -1275,8 +1290,7 @@
                     <div class="longform-video-info">
                         <h3 class="longform-video-title">Commercial Project Walkthrough</h3>
                         <p class="longform-video-desc">
-                            Aerial and ground coverage of a commercial development, highlighting scale,
-                            location advantages and connectivity for investors.
+                            A guided tour through the commercial space showcasing the design, floor plans, and modern infrastructure designed to maximize footfall and business visibility.
                         </p>
                         <span class="longform-video-tag">Drone & Aerial</span>
                     </div>
@@ -1314,28 +1328,34 @@
 
             <div class="beyond-services-grid">
                 <div class="beyond-service-card film-reveal">
-                    <div class="beyond-service-tag">Additional Service</div>
-                    <h3 class="beyond-service-title">Landing Page Design</h3>
-                    <p class="beyond-service-desc">
-                        We build custom, high-converting landing pages tailored to the property or the
-                        agent's brand — built to turn video views into enquiries.
-                    </p>
-                    <a href="{{ route('web-design-agency') }}" class="beyond-service-link">
-                        Explore This Service
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                    </a>
+                    <img src="{{ asset('assets/img/real-estate-video-ads/webdesign.jpg') }}" alt="Landing Page Design" class="beyond-service-img" loading="lazy">
+                    <div class="beyond-service-body">
+                        <div class="beyond-service-tag">Additional Service</div>
+                        <h3 class="beyond-service-title">Landing Page Design</h3>
+                        <p class="beyond-service-desc">
+                            We build custom, high-converting landing pages tailored to the property or the
+                            agent's brand — built to turn video views into enquiries.
+                        </p>
+                        <a href="{{ route('web-design-agency') }}" class="beyond-service-link">
+                            Explore This Service
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
                 </div>
                 <div class="beyond-service-card film-reveal">
-                    <div class="beyond-service-tag">Additional Service</div>
-                    <h3 class="beyond-service-title">Meta & Google Ads</h3>
-                    <p class="beyond-service-desc">
-                        We set up the targeting and optimization to put these videos in front of actual
-                        buyers and sellers, not just random views.
-                    </p>
-                    <a href="{{ route('performance-marketing-agency') }}" class="beyond-service-link">
-                        Explore This Service
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                    </a>
+                    <img src="{{ asset('assets/img/real-estate-video-ads/ads.jpg') }}" alt="Meta & Google Ads" class="beyond-service-img" loading="lazy">
+                    <div class="beyond-service-body">
+                        <div class="beyond-service-tag">Additional Service</div>
+                        <h3 class="beyond-service-title">Meta & Google Ads</h3>
+                        <p class="beyond-service-desc">
+                            We set up the targeting and optimization to put these videos in front of actual
+                            buyers and sellers, not just random views.
+                        </p>
+                        <a href="{{ route('performance-marketing-agency') }}" class="beyond-service-link">
+                            Explore This Service
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
