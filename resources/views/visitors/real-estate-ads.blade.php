@@ -122,7 +122,7 @@
 <main class="bg-film-black text-white font-body overflow-x-hidden">
 
     {{-- ====================== HERO ====================== --}}
-    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black pt-[140px] pb-[100px] px-5 hero-wrap" id="film-hero">
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black pt-[140px] pb-[100px] px-3 max-[768px]:px-3 hero-wrap" id="film-hero">
         <div class="absolute inset-0 bg-center bg-cover opacity-40 z-[1]"
              style="background-image:url('{{ asset('assets/img/real-estate-hero.jpg') }}'); filter:saturate(0.6) contrast(1.1);"></div>
         <div class="absolute inset-0 bg-black/60 z-[2]"></div>
@@ -157,9 +157,9 @@
 
     {{-- ====================== REELS ====================== --}}
     <section class="py-[60px] bg-white relative overflow-hidden reels-section" id="sec-reels">
-        <div class="max-w-[1300px] mx-auto px-5">
+        <div class="max-w-[1300px] mx-auto px-3 max-[768px]:px-3">
             <div class="film-reveal mb-[30px]">
-                <div class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">What It Is — 01 — Short-Form Videos</div>
+                <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">What It Is — 01 — Short-Form Videos</p>
                 <h2 class="font-display font-bold uppercase leading-[1.1] text-black mb-[15px]" style="font-size:clamp(36px,5vw,56px)">Scroll-Stopping<br>Short Content</h2>
                 <p class="text-[16px] text-[#555] max-w-[500px] leading-[1.6]">Fast-paced vertical videos tailored for real estate. Capture attention instantly and generate quick leads.</p>
             </div>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="absolute bottom-0 left-0 right-0 px-[15px] pb-[15px] pt-[25px] z-[2]"
                          style="background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%)">
-                        <h1 class="text-[13px] font-bold text-white m-0 mb-1 uppercase tracking-[0.5px]">{{ $reel['title'] }}</h1>
+                        <h4 class="text-[13px] font-bold text-white m-0 mb-1 uppercase tracking-[0.5px]">{{ $reel['title'] }}</h4>
                         <span class="text-[10px] text-[#888] uppercase tracking-[1px]">{{ $reel['sub'] }}</span>
                     </div>
                 </div>
@@ -204,9 +204,9 @@
 
     {{-- ====================== LONG-FORM ====================== --}}
     <section class="py-[60px] bg-white" id="sec-longform">
-        <div class="max-w-[1300px] mx-auto px-5">
+        <div class="max-w-[1300px] mx-auto px-3 max-[768px]:px-3">
             <div class="film-reveal mb-[30px]">
-                <div class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">What It Is — 02 — Long-Form Videos</div>
+                <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">What It Is — 02 — Long-Form Videos</p>
                 <h2 class="font-display font-bold uppercase leading-[1.1] text-black mb-[15px]" style="font-size:clamp(36px,5vw,56px)">Cinematic<br>Property Walkthroughs</h2>
                 <p class="text-[16px] text-[#555] max-w-[500px] leading-[1.6]">Cinematic tours and detailed walkthroughs. Designed to keep buyers watching and drive deep engagement.</p>
             </div>
@@ -231,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-[0.6] p-[50px_40px] flex flex-col justify-center max-[1024px]:p-[25px_25px_30px]">
+                    <div class="flex-[0.6] p-[50px_40px] flex flex-col justify-center max-[1024px]:p-[20px_15px_25px]">
                         <h3 class="text-[24px] font-bold text-black mb-[10px] uppercase tracking-[-0.5px] max-[768px]:text-[18px]">{{ $lf['title'] }}</h3>
                         <p class="text-[14px] text-[#555] leading-[1.6] mb-[25px] max-[768px]:text-[13px]">{{ $lf['desc'] }}</p>
                         <span class="inline-block px-3 py-1 bg-black/5 border border-[#ddd] text-[11px] text-[#555] uppercase tracking-[1px] w-fit">{{ $lf['tag'] }}</span>
@@ -247,11 +247,11 @@
 
         {{-- Title --}}
         <div class="bg-film-dark text-center" style="padding-top:50px; padding-bottom:50px;">
-            <div class="max-w-[1300px] mx-auto px-5">
-                <p class="font-bold uppercase flex flex-col tracking-[1px] text-white m-0 leading-[1.25]">
+            <div class="max-w-[1300px] mx-auto px-5 max-[768px]:px-3">
+                <h2 class="font-bold uppercase flex flex-col tracking-[1px] text-white m-0 leading-[1.25]">
                     <span style="font-size:clamp(22px,3vw,38px); font-family:'Oswald',sans-serif;">Model Shooting. Editing. Distribution.</span>
                     <span class="text-film-red" style="font-size:clamp(14px,1.8vw,22px); font-family:'Poppins',sans-serif;">We Already Have You Covered.</span>
-                </p>
+                </h2>
             </div>
         </div>
 
@@ -271,7 +271,7 @@
 
         {{-- Collapsible form body --}}
         <div id="re-lead-form-wrap" class="re-lead-form-wrap bg-[#0d0d0d] border-b border-[#1e1e1e]">
-            <div class="max-w-[1300px] mx-auto px-5">
+            <div class="max-w-[1300px] mx-auto px-5 max-[768px]:px-3">
                 <form id="re-lead-form" class="flex flex-col py-12" novalidate>
                     @csrf
 
@@ -325,9 +325,9 @@
 
     {{-- ====================== BEYOND THE SHOOT ====================== --}}
     <section class="py-[60px] bg-white" id="sec-beyond">
-        <div class="max-w-[1300px] mx-auto px-5">
+        <div class="max-w-[1300px] mx-auto px-3 max-[768px]:px-3">
             <div class="film-reveal mb-[30px]">
-                <div class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">03 — Beyond The Shoot</div>
+                <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">03 — Beyond The Shoot</p>
                 <h2 class="font-display font-bold uppercase leading-[1.1] text-black mb-[15px]" style="font-size:clamp(36px,5vw,56px)">We Don't Just Shoot.<br>We Build The Machine.</h2>
                 <p class="text-[16px] text-[#555] max-w-[500px] leading-[1.6]">We're not just a camera crew — we build the full system that turns these videos into actual leads.</p>
             </div>
@@ -336,8 +336,8 @@
 
                 {{-- Card 1: text left, image right --}}
                 <div class="film-reveal flex overflow-hidden min-h-[320px] bg-white max-[1024px]:flex-col-reverse max-[1024px]:min-h-0">
-                    <div class="flex-1 px-[50px] py-[50px] flex flex-col justify-center border-l-4 border-film-red max-[768px]:px-[25px] max-[768px]:py-[35px]">
-                        <div class="text-[11px] font-bold uppercase tracking-[2px] text-film-red mb-[15px]">Additional Service</div>
+                    <div class="flex-1 px-[50px] py-[50px] flex flex-col justify-center border-l-4 border-film-red max-[768px]:px-[15px] max-[768px]:py-[25px]">
+                        <p class="text-[11px] font-bold uppercase tracking-[2px] text-film-red mb-[15px]">Additional Service</p>
                         <h3 class="font-display text-[26px] font-bold uppercase text-black mb-[15px]">Landing Page Design</h3>
                         <p class="text-[15px] text-[#555] leading-[1.7] mb-[25px] flex-grow">
                             We build custom, high-converting landing pages tailored to the property or the agent's brand — built to turn video views into enquiries.
@@ -356,8 +356,8 @@
 
                 {{-- Card 2: image left, text right --}}
                 <div class="film-reveal flex flex-row-reverse overflow-hidden min-h-[320px] bg-white border-t border-[#eee] max-[1024px]:!flex-col-reverse max-[1024px]:min-h-0">
-                    <div class="flex-1 px-[50px] py-[50px] flex flex-col justify-center border-r-4 border-film-red max-[1024px]:border-r-0 max-[1024px]:border-l-4 max-[768px]:px-[25px] max-[768px]:py-[35px]">
-                        <div class="text-[11px] font-bold uppercase tracking-[2px] text-film-red mb-[15px]">Additional Service</div>
+                    <div class="flex-1 px-[50px] py-[50px] flex flex-col justify-center border-r-4 border-film-red max-[1024px]:border-r-0 max-[1024px]:border-l-4 max-[768px]:px-[15px] max-[768px]:py-[25px]">
+                        <p class="text-[11px] font-bold uppercase tracking-[2px] text-film-red mb-[15px]">Additional Service</p>
                         <h3 class="font-display text-[26px] font-bold uppercase text-black mb-[15px]">Meta & Google Ads</h3>
                         <p class="text-[15px] text-[#555] leading-[1.7] mb-[25px] flex-grow">
                             We set up the targeting and optimization to put these videos in front of actual buyers and sellers, not just random views.
@@ -380,18 +380,18 @@
 
     {{-- ====================== LOGISTICS ====================== --}}
     <section class="py-[60px] bg-white" id="sec-logistics">
-        <div class="max-w-[1300px] mx-auto px-5">
+        <div class="max-w-[1300px] mx-auto px-3 max-[768px]:px-3">
             <div class="film-reveal mb-[30px]">
-                <div class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">04 — Transparency & Logistics</div>
+                <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">04 — Transparency & Logistics</p>
                 <h2 class="font-display font-bold uppercase leading-[1.1] text-black mb-[15px]" style="font-size:clamp(36px,5vw,56px)">No Surprises.<br>Just Clarity.</h2>
                 <p class="text-[16px] text-[#555] max-w-[500px] leading-[1.6]">Addressing the logistics upfront so there are no surprises later here's exactly how travel works.</p>
             </div>
 
-            <div class="film-reveal bg-white border-l-[3px] border-film-red p-[50px] max-[768px]:p-[30px_25px]">
-                <p class="font-display font-bold text-black leading-[1.3] mb-[30px] max-w-[700px]"
-                   style="font-size:clamp(24px,3vw,34px)">
+            <div class="film-reveal bg-white border-l-[3px] border-film-red p-[50px] max-[768px]:p-[25px_15px]">
+                <h3 class="font-display font-bold text-black leading-[1.3] mb-[30px] max-w-[700px]"
+                    style="font-size:clamp(24px,3vw,34px)">
                     We shoot anywhere in India travel and accommodation expenses for our team are covered by the client.
-                </p>
+                </h3>
                 <div class="flex flex-col gap-[18px]">
                     @foreach([
                         ['ok','22c55e','rgba(34,197,94,0.15)','+','<strong class="text-black">Delhi NCR and beyond</strong> our production team covers Delhi, Gurgaon, Noida, the rest of the NCR region, and anywhere else in India.'],
@@ -410,7 +410,7 @@
     </section>
 
     {{-- ====================== CTA ====================== --}}
-    <section class="py-[70px] px-5 bg-white text-center relative overflow-hidden" id="sec-cta">
+    <section class="py-[70px] px-5 max-[768px]:px-3 bg-white text-center relative overflow-hidden" id="sec-cta">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
              style="background:radial-gradient(circle,rgba(229,9,20,0.05),transparent 70%)"></div>
 
