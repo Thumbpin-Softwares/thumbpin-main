@@ -20,23 +20,26 @@
 :root { --film-red: #E50914; }
 
 /* ---- Animations ---- */
-@keyframes heroFadeIn { to { opacity: 1; transform: translateY(0); } }
 @keyframes filmMarquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-.hero-title { opacity: 0; transform: translateY(30px); animation: heroFadeIn 1s ease forwards 0.3s; }
-.hero-desc  { opacity: 0; animation: heroFadeIn 1s ease forwards 0.6s; }
-.hero-stats { opacity: 0; animation: heroFadeIn 1s ease forwards 0.9s; }
 .kinetic-text { white-space: nowrap; animation: filmMarquee 20s linear infinite; will-change: transform; }
 
-/* ---- Hero watermark + outline text ---- */
-.hero-wrap::after {
-    content: 'FILM';
-    position: absolute; bottom: -60px; right: -20px;
-    font-size: clamp(120px,20vw,300px);
-    font-weight: 700; color: rgba(255,255,255,0.02);
-    z-index: 1; line-height: 1; pointer-events: none;
-}
+/* ---- Hero outline text ----
+   Matches the strategy/branding heroes: stroke thins on small screens so the
+   letterforms don't close up at clamp()'s lower bound. */
 .hero-title-outline { color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,0.6); }
+@media (max-width: 767px) { .hero-title-outline { -webkit-text-stroke-width: 1px; } }
+
+/* Users who ask the OS to stop motion get the hero's end state immediately. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .animate-hero-reveal { opacity: 1 !important; transform: none !important; }
+}
 
 /* ---- Reels watermark ---- */
 .reels-section::before {
@@ -155,25 +158,58 @@ $bcSchema = [
 <main class="bg-film-black text-white font-body overflow-x-hidden">
 
     {{-- ====================== HERO ====================== --}}
-    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black pt-[140px] pb-[100px] px-3 max-[768px]:px-3 hero-wrap" id="film-hero">
-        <div class="absolute inset-0 bg-center bg-cover opacity-40 z-[1]"
+    {{--
+        pt-[180px] clears the navbar: `header` is position:absolute; top:0
+        (assets/css/style.css), so it floats over this section rather than
+        pushing it down. Same hero frame as the strategy/branding pages.
+    --}}
+    <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-black px-5 pt-[180px] pb-[110px] max-[767px]:min-h-0 max-[767px]:pt-[150px] max-[767px]:pb-20" id="film-hero">
+        <div class="absolute inset-0 z-[1] bg-center bg-cover opacity-40"
              style="background-image:url('{{ asset('assets/img/real-estate-hero.jpg') }}'); filter:saturate(0.6) contrast(1.1);"></div>
-        <div class="absolute inset-0 bg-black/60 z-[2]"></div>
+        <div class="absolute inset-0 z-[2] bg-black/60"></div>
         <div class="absolute inset-0 z-[2]" style="background:radial-gradient(ellipse at center,transparent 30%,#000 85%);"></div>
+        {{-- Brand-red bloom behind the wordmark, so the hero reads as ours and not
+             as a generic grey photo wash. --}}
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 z-[2]"
+             style="background:radial-gradient(ellipse 55% 45% at 50% 42%,rgba(229,9,20,0.20),transparent 70%);"></div>
 
-        <div class="relative z-[3] text-center max-w-[900px]">
-            <h1 class="hero-title font-bold uppercase leading-[0.9] text-white mb-6"
-                style="font-size:clamp(48px,10vw,120px)">
+        <div class="relative z-[3] mx-auto max-w-[900px] text-center">
+            <p class="m-0 mb-6 text-[10px] font-bold uppercase tracking-[4px] text-film-red opacity-0 animate-hero-reveal [animation-delay:150ms] max-[575px]:tracking-[3px]">
+                Real Estate &mdash; Video Production
+            </p>
+
+            <h1 class="m-0 mb-6 text-[clamp(44px,9vw,110px)] font-extrabold uppercase leading-[0.92] tracking-[-2px] text-white opacity-0 translate-y-[30px] animate-hero-reveal [animation-delay:300ms]">
                 Real Estate <span class="hero-title-outline">Video Ads</span>
             </h1>
-            <p class="hero-desc text-[18px] text-[#999] max-w-[600px] mx-auto mb-10 leading-[1.7] font-light">
+
+            <p class="mx-auto m-0 mb-10 max-w-[620px] text-[18px] font-light leading-[1.7] text-[#a8a8a8] opacity-0 animate-hero-reveal [animation-delay:600ms] max-[575px]:mb-8 max-[575px]:text-[16px]">
                 From high-fashion model walkthroughs to precise, high-end editing, we produce premium video ads engineered to grab attention and sell properties faster.
             </p>
-            <div class="hero-stats flex justify-center gap-[50px] flex-wrap">
-                @foreach([['50+','Projects Filmed'],['20+','Brokers Served'],['200+','Shooting Hours']] as [$n,$l])
-                <div class="text-center">
-                    <div class="text-[42px] font-bold text-film-red leading-none">{{ $n }}</div>
-                    <div class="text-[11px] text-[#666] uppercase tracking-[2px] mt-1">{{ $l }}</div>
+
+            {{-- The page's whole job is lead capture, so the hero now offers the
+                 primary action instead of ending on stats. Both targets already
+                 exist further down the page. --}}
+            <div class="mb-12 flex flex-wrap items-center justify-center gap-4 opacity-0 animate-hero-reveal [animation-delay:750ms] max-[575px]:mb-10 max-[575px]:gap-3">
+                <a href="#re-lead-strip" id="re-hero-cta"
+                   class="inline-flex min-h-[48px] items-center justify-center bg-film-red px-9 py-3 text-[13px] font-bold uppercase tracking-[1.5px] text-white no-underline transition-[background-color,transform] duration-200 hover:bg-[#c40812] hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-film-red max-[575px]:px-7 max-[575px]:text-[12px]">
+                    Start A Project
+                </a>
+                <a href="#sec-reels"
+                   class="inline-flex min-h-[48px] items-center justify-center border border-solid border-white/30 px-9 py-3 text-[13px] font-bold uppercase tracking-[1.5px] text-white no-underline transition-[background-color,border-color,transform] duration-200 hover:border-white/60 hover:bg-white/10 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white max-[575px]:px-7 max-[575px]:text-[12px]">
+                    See The Work
+                </a>
+            </div>
+
+            {{--
+                A 3-up grid rather than a wrapping flex row: the old 50px flex gap
+                broke to 2 + 1 on narrow phones and left the third stat stranded.
+                Hairline rules do the separating the wide gap used to do.
+            --}}
+            <div class="mx-auto grid max-w-[560px] grid-cols-3 opacity-0 animate-hero-reveal [animation-delay:900ms]">
+                @foreach([['50+','Projects Filmed'],['20+','Brokers Served'],['200+','Shooting Hours']] as $i => [$n,$l])
+                <div class="px-2 text-center {{ $i > 0 ? 'border-l border-solid border-white/15' : '' }}">
+                    <div class="text-[42px] font-black leading-none text-film-red max-[767px]:text-[30px]">{{ $n }}</div>
+                    <div class="mt-2 text-[11px] uppercase leading-[1.4] tracking-[2px] text-[#8a8a8a] max-[575px]:text-[9px] max-[575px]:tracking-[1px]">{{ $l }}</div>
                 </div>
                 @endforeach
             </div>
@@ -188,8 +224,28 @@ $bcSchema = [
         </div>
     </div>
 
+    {{--
+        Visible breadcrumb, mirroring the BreadcrumbList schema in @section('head').
+
+        Sits after the kinetic divider rather than directly under the hero: this
+        page's <main> is bg-film-black, and the partial is styled for a light
+        background, so it needs the white band the content half of the page opens
+        with. The divider above it is only ~80px tall, so the trail still lands
+        near the top of the page.
+    --}}
+    <div class="bg-white">
+        @include('inc.breadcrumb', [
+            'trail' => [
+                ['Home',     route('home')],
+                ['Services', route('services')],
+                ['Real Estate Video Ads', null],
+            ],
+            'container' => 'max-w-[1300px] px-3',
+        ])
+    </div>
+
     {{-- ====================== REELS ====================== --}}
-    <section class="py-[60px] bg-white relative overflow-hidden reels-section" id="sec-reels">
+    <section class="pt-[40px] pb-[60px] bg-white relative overflow-hidden reels-section" id="sec-reels">
         <div class="max-w-[1300px] mx-auto px-3 max-[768px]:px-3">
             <div class="film-reveal mb-[30px]">
                 <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">What It Is — 01 — Short-Form Videos</p>
@@ -200,14 +256,14 @@ $bcSchema = [
             <div class="grid grid-cols-4 gap-2 mt-[60px] max-[1024px]:grid-cols-3 max-[768px]:grid-cols-2 max-[768px]:gap-3">
                 @php
                 $reels = [
-                    ['id'=>'OaWH39sli8I','title'=>'Reach Buzz 114',      'sub'=>'Commercial Content'],
+                    ['id'=>'-8fH8d6S1Bs','title'=>'County Center Cout', 'sub'=>'Commercial Content'],
                     ['id'=>'iqq0wHrYodA','title'=>'Yashika Group',       'sub'=>'Featured Reel'],
                     ['id'=>'_Dd1WU4yNvk','title'=>'Gaurs Real Estate',   'sub'=>'Branded Ad'],
                     ['id'=>'AtbeokcSRW0','title'=>'Cinematic Reel',      'sub'=>'Photoshoot'],
                     ['id'=>'vHdLpqGBSHc','title'=>'Creator Reel',        'sub'=>'UGC Content'],
-                    ['id'=>'QaSbbGlLOkk','title'=>'London Screen Mohali','sub'=>'Commercial Content'],
+                    ['id'=>'LYPCywc-0J8','title'=>'Elan Presidential',   'sub'=>'Ultra Luxury Real Estate Content'],
                     ['id'=>'LnahKtDOZII','title'=>'Platinum Park',       'sub'=>'Commercial Content'],
-                    ['id'=>'mjtbisBMB-A','title'=>'Grand Emporio',       'sub'=>'UGC Content'],
+                    ['id'=>'tgKWcHg76GU','title'=>'SS Cendana',         'sub'=>'UGC Content'],
                 ];
                 @endphp
 
@@ -359,54 +415,70 @@ $bcSchema = [
     {{-- ====================== BEYOND THE SHOOT ====================== --}}
     <section class="py-[60px] bg-white" id="sec-beyond">
         <div class="max-w-[1300px] mx-auto px-3 max-[768px]:px-3">
-            <div class="film-reveal mb-[30px]">
-                <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">03 — Beyond The Shoot</p>
-                <h2 class="font-bold uppercase leading-[1.1] text-black mb-[15px]" style="font-size:clamp(36px,5vw,56px)">We Don't Just Shoot.<br>We Build The Machine.</h2>
-                <p class="text-[16px] text-[#555] max-w-[500px] leading-[1.6]">We're not just a camera crew — we build the full system that turns these videos into actual leads.</p>
+            {{-- Editorial two-column header: the claim on the left, the qualifier
+                 set against it on the right rather than stacked underneath, so the
+                 headline keeps the full width of its own line. --}}
+            <div class="film-reveal mb-[50px] flex items-end justify-between gap-10 max-[1024px]:flex-col max-[1024px]:items-start max-[1024px]:gap-5 max-[1024px]:mb-[36px]">
+                <div>
+                    <p class="text-[11px] font-bold uppercase tracking-[3px] text-film-red mb-[15px]">03 — Beyond The Shoot</p>
+                    <h2 class="font-bold uppercase leading-[1.1] text-black m-0" style="font-size:clamp(36px,5vw,56px)">We Don't Just Shoot.<br>We Build The Machine.</h2>
+                </div>
+                <p class="m-0 max-w-[400px] text-[16px] leading-[1.7] text-[#555] max-[1024px]:max-w-[500px]">
+                    We're not just a camera crew we build the full system that turns these videos into actual leads.
+                </p>
             </div>
 
-            <div class="flex flex-col">
+            {{--
+                Two parts of one machine, so they sit side by side as equal-weight
+                cards instead of stacking as two full-width bands. The whole card is
+                the link: a 26px text link was the only hit target before, and the
+                surrounding card was dead space.
+            --}}
+            @php
+            $beyond = [
+                [
+                    'n'     => '01',
+                    'kicker'=> 'Where The Traffic Lands',
+                    'title' => 'Landing Page Design',
+                    'desc'  => "We build custom, high-converting landing pages tailored to the property or the agent's brand — built to turn video views into enquiries.",
+                    'href'  => route('application-development'),
+                ],
+                [
+                    'n'     => '02',
+                    'kicker'=> 'How The Traffic Arrives',
+                    'title' => 'Meta & Google Ads',
+                    'desc'  => 'We set up the targeting and optimization to put these videos in front of actual buyers and sellers, not just random views.',
+                    'href'  => route('performance-marketing-agency'),
+                ],
+            ];
+            @endphp
 
-                {{-- Card 1: text left, image right --}}
-                <div class="film-reveal flex overflow-hidden min-h-[320px] bg-white max-[1024px]:flex-col-reverse max-[1024px]:min-h-0">
-                    <div class="flex-1 px-[50px] py-[50px] flex flex-col justify-center border-l-4 border-film-red max-[768px]:px-[15px] max-[768px]:py-[25px]">
-                        <p class="text-[11px] font-bold uppercase tracking-[2px] text-film-red mb-[15px]">Additional Service</p>
-                        <h3 class="text-[26px] font-bold uppercase text-black mb-[15px]">Landing Page Design</h3>
-                        <p class="text-[15px] text-[#555] leading-[1.7] mb-[25px] flex-grow">
-                            We build custom, high-converting landing pages tailored to the property or the agent's brand — built to turn video views into enquiries.
-                        </p>
-                        <a href="{{ route('application-development') }}"
-                           class="group inline-flex items-center gap-2 text-black text-[13px] font-bold uppercase tracking-[1px] no-underline transition-colors duration-[400ms] hover:text-film-red w-fit">
-                            Explore This Service
-                            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                    <div class="w-[42%] flex-shrink-0 flex items-center justify-center bg-white max-[1024px]:w-full max-[1024px]:h-[220px]">
-                        <img src="{{ asset('assets/img/real-estate-video-ads/web_design.png') }}" alt="Landing Page Design" loading="lazy"
-                             class="w-auto h-auto max-w-[320px] max-h-[320px] object-contain">
-                    </div>
+            <div class="grid grid-cols-2 gap-6 max-[900px]:grid-cols-1 max-[900px]:gap-5">
+                {{-- film-reveal lives on the wrapper, not the card: it animates
+                     `transform` on the element it sits on, which would otherwise
+                     override the card's hover lift once revealed. --}}
+                @foreach($beyond as $b)
+                <div class="film-reveal">
+                <a href="{{ $b['href'] }}"
+                   class="beyond-card group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-solid border-[#e6e6e6] bg-white p-[44px_40px_38px] no-underline transition-[transform,border-color,box-shadow] duration-[400ms] hover:-translate-y-1 hover:border-film-red/40 hover:shadow-[0_30px_60px_rgba(0,0,0,0.10)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-film-red max-[768px]:p-[30px_22px_28px]">
+
+                    {{-- Oversized index sits behind the copy as texture rather than
+                         as a second thing to read — hence aria-hidden and the very
+                         low contrast. It warms toward red on hover. --}}
+                    <span aria-hidden="true"
+                          class="pointer-events-none absolute -top-2 right-5 text-[130px] font-black leading-none text-black/[0.05] transition-colors duration-[400ms] group-hover:text-film-red/[0.10] max-[768px]:text-[90px]">{{ $b['n'] }}</span>
+
+                    <p class="relative m-0 mb-5 text-[11px] font-bold uppercase tracking-[2px] text-film-red">{{ $b['kicker'] }}</p>
+
+                    {{-- The short red rule is the only ornament in the card; it does
+                         the separating a border or a filled panel would otherwise do. --}}
+                    <span aria-hidden="true" class="relative mb-6 block h-[3px] w-[42px] bg-film-red transition-[width] duration-[400ms] group-hover:w-[64px]"></span>
+
+                    <h3 class="relative m-0 mb-4 text-[30px] font-bold uppercase leading-[1.15] tracking-[-0.5px] text-black max-[768px]:text-[22px]">{{ $b['title'] }}</h3>
+                    <p class="relative m-0 mb-[32px] max-w-[46ch] text-[15px] leading-[1.75] text-[#555]">{{ $b['desc'] }}</p>
+                </a>
                 </div>
-
-                {{-- Card 2: image left, text right --}}
-                <div class="film-reveal flex flex-row-reverse overflow-hidden min-h-[320px] bg-white border-t border-[#eee] max-[1024px]:!flex-col-reverse max-[1024px]:min-h-0">
-                    <div class="flex-1 px-[50px] py-[50px] flex flex-col justify-center border-r-4 border-film-red max-[1024px]:border-r-0 max-[1024px]:border-l-4 max-[768px]:px-[15px] max-[768px]:py-[25px]">
-                        <p class="text-[11px] font-bold uppercase tracking-[2px] text-film-red mb-[15px]">Additional Service</p>
-                        <h3 class="text-[26px] font-bold uppercase text-black mb-[15px]">Meta & Google Ads</h3>
-                        <p class="text-[15px] text-[#555] leading-[1.7] mb-[25px] flex-grow">
-                            We set up the targeting and optimization to put these videos in front of actual buyers and sellers, not just random views.
-                        </p>
-                        <a href="{{ route('performance-marketing-agency') }}"
-                           class="group inline-flex items-center gap-2 text-black text-[13px] font-bold uppercase tracking-[1px] no-underline transition-colors duration-[400ms] hover:text-film-red w-fit">
-                            Explore This Service
-                            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                    <div class="w-[42%] flex-shrink-0 flex items-center justify-center bg-white max-[1024px]:w-full max-[1024px]:h-[220px]">
-                        <img src="{{ asset('assets/img/real-estate-video-ads/ads.png') }}" alt="Meta & Google Ads" loading="lazy"
-                             class="w-auto h-auto max-w-[320px] max-h-[320px] object-contain">
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </section>
@@ -669,6 +741,18 @@ $bcSchema = [
         topStrip.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
     handleFormSubmit('re-lead-form', 're-lead-submit', 're-lead-success', 're-lead-error', topStrip, topWrap);
+
+    // The hero CTA points at the strip, so expand the form on arrival instead of
+    // dropping the visitor on a collapsed bar they have to click again.
+    var heroCta = document.getElementById('re-hero-cta');
+    if (heroCta) {
+        heroCta.addEventListener('click', function() {
+            if (!topWrap.classList.contains('is-open')) {
+                topWrap.classList.add('is-open');
+                topStrip.setAttribute('aria-expanded', 'true');
+            }
+        });
+    }
 
     // ===== BOTTOM CTA FORM =====
     handleFormSubmit('cta-lead-form', 'cta-lead-submit', 'cta-lead-success', 'cta-lead-error', null, null);

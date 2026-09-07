@@ -13,11 +13,19 @@
             ['Branding', null],
         ]])
 
+    Pass $container to match a page whose sections aren't on the default 1140px
+    grid, so the trail lines up with the content under it:
+
+        @include('inc.breadcrumb', [
+            'trail'     => [...],
+            'container' => 'max-w-[1300px] px-3',
+        ])
+
     Styled with Tailwind from css/app.css, so include it only on pages that load
     that build. aria-current marks the current page for screen readers; the
     separators are aria-hidden since they carry no meaning when read aloud.
 --}}
-<nav aria-label="Breadcrumb" class="mx-auto max-w-[1140px] px-5 pt-8 pb-2">
+<nav aria-label="Breadcrumb" class="mx-auto {{ $container ?? 'max-w-[1140px] px-5' }} pt-8 pb-2">
     <ol class="m-0 flex list-none flex-wrap items-center gap-x-2 gap-y-1 p-0 text-[13px] leading-none text-[#999]">
         @foreach($trail as $i => [$label, $url])
         <li class="flex items-center gap-x-2">
